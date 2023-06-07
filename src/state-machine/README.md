@@ -178,7 +178,7 @@ Se crea una instancia de la clase `StateMachine<QualityControlState>` llamada pr
 let productState = new StateMachine<QualityControlState>(config)
 ```
 
-La función `executeTransitions` se utiliza para ejecutar las transiciones con un intervalo de 1 segundo. Recibe una matriz de estados y devuelve un observable que emite los estados uno por uno en el intervalo de tiempo especificado. En este ejemplo, se utiliza `executeTransitions` para simular el progreso del control de calidad.
+La función `executeTransitions` se utiliza para ejecutar las transiciones con un intervalo de 1 segundo. Recibe un arreglo de estados y devuelve un observable que emite los estados uno por uno en el intervalo de tiempo especificado. En este ejemplo, se utiliza `executeTransitions` para simular el progreso del control de calidad.
 
 ```typescript
 const executeTransitions = (states: State<QualityControlState>[]) => {
@@ -189,7 +189,7 @@ const executeTransitions = (states: State<QualityControlState>[]) => {
 }
 ```
 
-La función `successTransitions` simula una serie de transiciones exitosas en el control de calidad. Define una matriz de estados que representan las transiciones a realizar, como la inspección visual, la inspección funcional y la aprobación del producto. Luego, se suscribe al observable devuelto por `executeTransitions` y cada vez que se emite un estado, se realiza la transición correspondiente utilizando el método transition de la instancia `productState`.
+La función `successTransitions` simula una serie de transiciones exitosas en el control de calidad. Define un arreglo de estados que representan las transiciones a realizar, como la inspección visual, la inspección funcional y la aprobación del producto. Luego, se suscribe al observable devuelto por `executeTransitions` y cada vez que se emite un estado, se realiza la transición correspondiente utilizando el método transition de la instancia `productState`.
 
 ```typescript
 const successTransitions = () => {
@@ -203,7 +203,7 @@ const successTransitions = () => {
 }
 ```
 
-La función `failedTransition` simula una transición fallida en el control de calidad. Define una matriz de estados que representa la inspección visual y el rechazo del producto. Al igual que en `successTransitions`, se realiza la transición correspondiente utilizando el método transition.
+La función `failedTransition` simula una transición fallida en el control de calidad. Define un arreglo de estados que representa la inspección visual y el rechazo del producto. Al igual que en `successTransitions`, se realiza la transición correspondiente utilizando el método transition.
 
 ```typescript
 const failedTransition = () => {
@@ -216,7 +216,7 @@ const failedTransition = () => {
 }
 ```
 
-La función `invalidTransitions` simula una serie de transiciones inválidas en el control de calidad. Define una matriz de estados que intenta realizar una transición desde `visual-inspection` a `approved`, lo cual no es una transición permitida. Se suscribe al observable devuelto por `executeTransitions` y cuando se intenta realizar la transición inválida, se captura el error utilizando el bloque error en la suscripción.
+La función `invalidTransitions` simula una serie de transiciones inválidas en el control de calidad. Define un arreglo de estados que intenta realizar una transición desde `visual-inspection` a `approved`, lo cual no es una transición permitida. Se suscribe al observable devuelto por `executeTransitions` y cuando se intenta realizar la transición inválida, se captura el error utilizando el bloque error en la suscripción.
 
 ```typescript
 const invalidTransitions = () => {
