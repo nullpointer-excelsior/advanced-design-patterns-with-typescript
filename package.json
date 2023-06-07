@@ -1,10 +1,10 @@
 {
-  "name": "state-machine",
+  "name": "advanced-design-pattern-with-typescript",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start:state-machine": "ts-node src/state-machine/app.ts",
     "test": "jest"
   },
   "keywords": [],

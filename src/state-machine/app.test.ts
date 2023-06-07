@@ -1,4 +1,4 @@
-import { QualityControlState } from '.';
+import { QualityControlState } from './app';
 import { StateMachine, StateMachineConfig, InvalidStateError } from './state-machine'; // Reemplaza './your-state-machine-file' con la ruta correcta a tu archivo de la máquina de estados
 
 describe('productState', () => {
