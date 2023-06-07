@@ -30,11 +30,6 @@ const executeTransitions = (states: State<QualityControlState>[]) => {
     )
 }
 
-// Subscripcion al estado de un producto
-productState
-    .state()
-    .subscribe(state => console.log('Product state', state))
-
 
 const successTransitions = () => {
     const transitions: State<QualityControlState>[] = [
@@ -67,6 +62,11 @@ const invalidTransitions = () => {
         });
 }
 
+
+// Subscripcion al estado de un producto
+productState
+    .state()
+    .subscribe(state => console.log('Product state', state))
 
 successTransitions()
 // failedTransition()
