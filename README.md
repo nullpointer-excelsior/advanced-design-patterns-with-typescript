@@ -5,6 +5,8 @@ los ejemplos disponibles:
 
 * `state-machine`: ejemplo de implementación de una maquina de estados con validación de transiciones entre un estado a otro para mantener la consistencia interna de los datos.
 
+* `event-arquitecture`: Ejemplo de implementación de arquitectura orientada a eventos con Rxjs. Uso para eventos de dominio, escucha de estados y eventos personalizados
+
 
 ## Ejecutando los ejemplos 
 
