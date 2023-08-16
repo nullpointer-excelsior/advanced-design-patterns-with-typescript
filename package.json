@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:state-machine": "ts-node src/state-machine/app.ts",
+    "start:events": "ts-node src/event-architecture/app.ts",
     "test": "jest"
   },
   "keywords": [],
