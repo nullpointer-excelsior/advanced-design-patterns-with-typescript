@@ -1,7 +1,4 @@
-import axios from "axios";
-import { Observable, catchError, defer, from, iif, of, pipe, retry, throwError, timeout } from "rxjs";
-import { createLogger } from "../utils/create-logger";
-
+import { Observable, catchError, iif, of, retry, throwError, timeout } from "rxjs";
 
 type ResilenceOptions<T> = {
     timeout: number,
@@ -11,7 +8,6 @@ type ResilenceOptions<T> = {
     },
     fallback?: T
 }
-
 
 export function addResilence<T = any>(source$: Observable<T>) {
     return function <T = any>(options: ResilenceOptions<T>) {
