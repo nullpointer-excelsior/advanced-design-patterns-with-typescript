@@ -6,6 +6,7 @@
   "scripts": {
     "start:state-machine": "ts-node src/state-machine/app.ts",
     "start:events": "ts-node src/event-architecture/app.ts",
+    "start:resilience": "ts-node src/resilience/app.ts",
     "test": "jest"
   },
   "keywords": [],

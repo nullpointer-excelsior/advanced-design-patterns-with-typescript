@@ -1,6 +1,6 @@
 import { Observable, catchError, iif, of, retry, throwError, timeout } from "rxjs";
 
-type ResilenceOptions<T> = {
+type ResilienceOptions<T> = {
     timeout: number,
     retry: {
         count: number,
@@ -9,8 +9,8 @@ type ResilenceOptions<T> = {
     fallback?: T
 }
 
-export function addResilence<T = any>(source$: Observable<T>) {
-    return function <T = any>(options: ResilenceOptions<T>) {
+export function addResilience<T = any>(source$: Observable<T>) {
+    return function <T = any>(options: ResilienceOptions<T>) {
         const { timeout: timeoutMilliseconds, retry: retryOptions, fallback } = options;
         return source$.pipe(
             timeout({

@@ -1,6 +1,6 @@
 import { delay, from, of, switchMap, tap, throwError } from 'rxjs';
 import { createLogger } from '../utils/create-logger';
-import { addResilence } from './resilence';
+import { addResilience } from './resilience';
 
 const logger = createLogger()
 
@@ -31,22 +31,27 @@ const options = {
     fallback: "Ops, something went wrong"
 }
 
-const successRequest = addResilence(successRequest$)
-successRequest(options).subscribe({
+const successRequest = addResilience(successRequest$)
+const successObservable$ = successRequest(options)
+
+successObservable$.subscribe({
     next: (value) => logger.info(`success-response: ${JSON.stringify(value, null, 2)}`),
-    error: (error) => logger.error(`resilence-error: ${error.message}`, error),
+    error: (error) => logger.error(`resilience-error: ${error.message}`, error),
 })
 
-const fallbackRequest = addResilence(failedRequest$)
-fallbackRequest(options).subscribe({
+const fallbackRequest = addResilience(failedRequest$)
+const fallbackObservable$ = fallbackRequest(options)
+
+fallbackObservable$.subscribe({
     next: (value) => logger.info(`fallback-response: ${JSON.stringify(value, null, 2)}`),
-    error: (error) => logger.error(`resilence-error: ${error.message}`, error),
+    error: (error) => logger.error(`resilience-error: ${error.message}`, error),
 })
 
-const retryRequest = addResilence(retriedRequest$)
-retryRequest(options).subscribe({
+const retryRequest = addResilience(retriedRequest$)
+const retryObservable$ = retryRequest(options)
+retryObservable$.subscribe({
     next: (value) => logger.info(`retry-response: ${JSON.stringify(value, null, 2)}`),
-    error: (error) => logger.error(`resilence-error: ${error.message}`, error),
+    error: (error) => logger.error(`resilience-error: ${error.message}`, error),
 })
 
 

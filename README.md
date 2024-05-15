@@ -7,6 +7,8 @@ los ejemplos disponibles:
 
 * `event-arquitecture`: Ejemplo de implementación de arquitectura orientada a eventos con Rxjs. Uso para eventos de dominio, escucha de estados y eventos personalizados
 
+* `resilience-patterns`: Ejemplos de patrones de resilencia combinados con RxJs. se encuentran los siguientes ejemplos: timeout, retry y fallback.
+
 
 ## Ejecutando los ejemplos 
 
@@ -25,9 +27,18 @@ npm run test
 npm run start:state-machine
 ```
 
+### `resilience`:
+```bash
+#!/bin/bash
+
+# running resilience example
+npm run start:resilience
+```
+
 ## Tecnologías
 
 * Nodejs 18
+* RxJs 7
 
 
 `Autor`: Benjamín
